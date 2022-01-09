@@ -20,7 +20,7 @@ function App(props) {
 
   function editTask(id, newName) {
     const editedTaskList = tasks.map(task => {
-      if (task.id == id) {
+      if (task.id === id) {
         return { ...task, name: newName }
       }
       return task;
