@@ -7,12 +7,26 @@ import React, { useState } from "react";
 
 function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
+
+  function toggleTaskCompleted(id) {
+    const updatedTasks = tasks.map(task => {
+      if (tasks.id === id) {
+        return { ...task, completed: !task.checked };
+      }
+      return task;
+    });
+
+    setTasks(updatedTasks);
+
+  }
+
   const taskList = tasks.map(task =>
     <Todo
       id={task.id}
       name={task.name}
       completed={task.completed}
       key={task.id}
+      toggleTaskCompleted={toggleTaskCompleted}
     />
   );
 
@@ -21,8 +35,9 @@ function App(props) {
     setTasks([...tasks, newTask]);
   }
   //template literal: '${e}' to embed this expression in string
-  const headingText = `${taskList.length} tasks remaining`;
   const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
+  const headingText = `${taskList.length} ${tasksNoun} remaining`;
+
 
   return (
     <div className="todoapp stack-large">
