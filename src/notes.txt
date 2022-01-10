@@ -1,3 +1,3 @@
-Deleting a task (like toggling completed state)
-
-define fn t
+TOdo
+>practice building forms
+>practice applying react principles to other projects
