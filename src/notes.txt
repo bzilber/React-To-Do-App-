@@ -1,3 +1,0 @@
-Deleting a task (like toggling completed state)
-
-define fn t
