@@ -5,8 +5,17 @@ import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
 import React, { useState } from "react";
 
+const FILTER_MAP = {
+  All: () => true,
+  Active: task => !task.completed,
+  Completed: task => task.completed
+};
+
+const FILTER_NAMES = Object.keys(FILTER_MAP);
+
 function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
+  const [filter, setFilter] = UseState('All');
 
   function toggleTaskCompleted(id) {
     const updatedTasks = tasks.map(task => {
