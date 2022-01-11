@@ -4,10 +4,8 @@ export default function Todo(props) {
 
     const [isEditing, setEditing] = useState(false);
     const [newName, setNewName] = useState('');
+    const [color, setColor] = useState('');
 
-    // function handleChange(name) {
-    //     setNewName(name);
-    // }
     function handleChange(e) {
         setNewName(e.target.value);
     }
@@ -59,7 +57,11 @@ export default function Todo(props) {
                 </label>
             </div>
             <div className="btn-group">
-                <button type="button" className="btn" onClick={() => setEditing(true)}>
+                <button
+                    type="button"
+                    className="btn"
+                    onClick={() => setEditing(true)}
+                >
                     Edit <span className="visually-hidden">{props.name}</span>
                 </button>
                 <button
@@ -68,6 +70,15 @@ export default function Todo(props) {
                     onClick={() => props.deleteTask(props.id)}
                 >
                     Delete <span className="visually-hidden">{props.name}</span>
+                </button>
+                <button
+                    type="button"
+                    className={'btn ' + color}
+                    //className="btn"
+                    onClick={() => setColor("btn__danger")}
+                >
+                    Priority <span className="visually-hidden">{props.name}</span>
+
                 </button>
             </div>
         </div>
