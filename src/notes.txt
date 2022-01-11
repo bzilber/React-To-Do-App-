@@ -1,3 +1,4 @@
 TOdo
+>add buttons to form page for practice. e.g. button to do something like add priority status
 >practice building forms
 >practice applying react principles to other projects
