@@ -5,6 +5,7 @@ export default function Todo(props) {
     const [isEditing, setEditing] = useState(false);
     const [newName, setNewName] = useState('');
     const [color, setColor] = useState('');
+    var count = 0;
 
     function handleChange(e) {
         setNewName(e.target.value);
@@ -75,7 +76,16 @@ export default function Todo(props) {
                     type="button"
                     className={'btn ' + color}
                     //className="btn"
-                    onClick={() => setColor("btn__danger")}
+                    onClick={() => {
+                        if (count === 0) {
+                            setColor("btn__danger");
+                            count = 1;
+                        } else {
+                            setColor("");
+                            count = 0;
+                        }
+                    }
+                    }
                 >
                     Priority <span className="visually-hidden">{props.name}</span>
 
