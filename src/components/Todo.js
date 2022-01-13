@@ -4,10 +4,8 @@ export default function Todo(props) {
 
     const [isEditing, setEditing] = useState(false);
     const [newName, setNewName] = useState('');
+    const [priority, setPriority] = useState("");
 
-    // function handleChange(name) {
-    //     setNewName(name);
-    // }
     function handleChange(e) {
         setNewName(e.target.value);
     }
@@ -17,6 +15,10 @@ export default function Todo(props) {
         props.editTask(props.id, newName)
         setNewName("");
         setEditing(false);
+    }
+
+    function swapPriority() {
+        setPriority(!priority);
     }
 
     const editingTemplate = (
@@ -59,7 +61,11 @@ export default function Todo(props) {
                 </label>
             </div>
             <div className="btn-group">
-                <button type="button" className="btn" onClick={() => setEditing(true)}>
+                <button
+                    type="button"
+                    className="btn"
+                    onClick={() => setEditing(true)}
+                >
                     Edit <span className="visually-hidden">{props.name}</span>
                 </button>
                 <button
@@ -68,6 +74,15 @@ export default function Todo(props) {
                     onClick={() => props.deleteTask(props.id)}
                 >
                     Delete <span className="visually-hidden">{props.name}</span>
+                </button>
+                <button
+                    type="button"
+                    className={priority ? 'btn btn__danger' : 'btn'}
+                    onClick={swapPriority}
+                >
+                    {priority ? 'Prority: Yes' : 'Prority: No'}
+                    <span className="visually-hidden">{props.name}</span>
+
                 </button>
             </div>
         </div>

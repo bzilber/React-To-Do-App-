@@ -28,6 +28,7 @@ function App(props) {
         toggleTaskCompleted={toggleTaskCompleted}
         deleteTask={deleteTask}
         editTask={editTask}
+      // priorityTask={priorityTask}
       />
     );
 
