@@ -28,7 +28,7 @@ function App(props) {
         toggleTaskCompleted={toggleTaskCompleted}
         deleteTask={deleteTask}
         editTask={editTask}
-        priorityTask={priorityTask}
+      // priorityTask={priorityTask}
       />
     );
 
@@ -64,10 +64,6 @@ function App(props) {
     setTasks(tasks.filter(task => id !== task.id));
   }
 
-  function priorityTask(id) {
-    console.log(id);
-
-  }
   function addTask(name) {
     const newTask = { id: "todo-" + nanoid(), name: name, completed: false };
     setTasks([...tasks, newTask]);

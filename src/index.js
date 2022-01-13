@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const DATA = [
-  { id: "todo-0", name: "Eat", completed: true, priority: true },
+  { id: "todo-0", name: "Eat", completed: true },
   { id: "todo-1", name: "Sleep", completed: false, priority: false },
   { id: "todo-2", name: "Repeat", completed: false, priority: false }
 ]

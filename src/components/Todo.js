@@ -4,8 +4,7 @@ export default function Todo(props) {
 
     const [isEditing, setEditing] = useState(false);
     const [newName, setNewName] = useState('');
-    const [priority, setPriority] = useState(false);
-    var isPriority = 0;
+    const [priority, setPriority] = useState("");
 
     function handleChange(e) {
         setNewName(e.target.value);
@@ -19,15 +18,8 @@ export default function Todo(props) {
     }
 
     function swapPriority() {
-        if (isPriority === 0) {
-            setPriority("btn__danger");
-            isPriority = 1;
-        } else {
-            setPriority("");
-            isPriority = 0;
-        }
+        setPriority(!priority);
     }
-
 
     const editingTemplate = (
         <form className="stack-small"
@@ -85,10 +77,11 @@ export default function Todo(props) {
                 </button>
                 <button
                     type="button"
-                    className={'btn ' + priority}
+                    className={priority ? 'btn btn__danger' : 'btn'}
                     onClick={swapPriority}
                 >
-                    Priority <span className="visually-hidden">{props.name}</span>
+                    {priority ? 'Prority: Yes' : 'Prority: No'}
+                    <span className="visually-hidden">{props.name}</span>
 
                 </button>
             </div>
